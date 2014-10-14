@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profect_name: MyString
+  technology: MyString
+  status: MyString
+  delivery_date: MyString
+  feedback: MyString
+
+two:
+  profect_name: MyString
+  technology: MyString
+  status: MyString
+  delivery_date: MyString
+  feedback: MyString

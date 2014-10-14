@@ -1,0 +1,25 @@
+%h1 Listing employs
+
+%table.table
+  %tr
+    %th First name
+    %th Last name
+    %th Contact
+    %th Address
+    %th
+    %th
+    %th
+
+  - @employs.each do |employ|
+    %tr
+      %td= employ.first_name
+      %td= employ.last_name
+      %td= employ.contact
+      %td= employ.address
+      %td= link_to 'Show', employ
+      %td= link_to 'Edit', edit_employ_path(employ)
+      %td= link_to 'Destroy', employ, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Employ', new_employ_path
