@@ -16,6 +16,18 @@
     = f.label :contact
     = f.text_field :contact
   .field
+    = f.label :role
+    = f.text_field :role
+  .field
+    = f.label :status
+    - if @employ.role == 'developer'
+      %b Assign TeamLead
+      = f.select :status , options_for_select(@employees.map {|teamlead| teamlead.employ.first_name})
+    - if @employ.role == 'teamlead'
+      %b Assign Apm
+      = f.select :status , options_for_select(@employees.map {|apm| apm.employ.first_name})
+
+  .field
     = f.label :address
     = f.text_area :address
   .actions

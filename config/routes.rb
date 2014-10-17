@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+  get 'admins/index'
+
   get 'home' => 'home#index'
 
   resources :employs
+  resources :admins do
+    collection do
+      get :assign_employ 
+    end
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

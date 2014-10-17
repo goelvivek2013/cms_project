@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014104640) do
+ActiveRecord::Schema.define(version: 20141015093617) do
 
   create_table "admins", force: true do |t|
     t.integer  "employ_id"
@@ -22,34 +22,48 @@ ActiveRecord::Schema.define(version: 20141014104640) do
   add_index "admins", ["employ_id"], name: "index_admins_on_employ_id", using: :btree
 
   create_table "apms", force: true do |t|
-    t.integer  "employ_id_id"
+    t.integer  "employ_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "developers", force: true do |t|
+    t.integer  "employ_id"
+    t.integer  "teamlead_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "developers", ["employ_id"], name: "index_developers_on_employ_id", using: :btree
+  add_index "developers", ["teamlead_id"], name: "index_developers_on_teamlead_id", using: :btree
 
   create_table "employs", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "contact"
     t.text     "address"
+    t.string   "role",       default: "developer"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role"
+    t.string   "status",     default: "unassigned"
   end
 
   create_table "projects", force: true do |t|
-    t.string   "profect_name"
+    t.string   "project_name"
     t.string   "technology"
     t.string   "status"
     t.string   "delivery_date"
     t.string   "feedback"
+    t.integer  "apm_id"
+    t.integer  "teamlead_id"
+    t.integer  "developer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "teamleads", force: true do |t|
-    t.integer  "employ_id_id"
-    t.integer  "apm_id_id"
+    t.integer  "employ_id"
+    t.integer  "apm_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

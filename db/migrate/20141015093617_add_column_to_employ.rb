@@ -1,5 +1,5 @@
 class AddColumnToEmploy < ActiveRecord::Migration
   def change
-    add_column :employs, :role, :string
+    add_column :employs, :status, :string , :default => 'unassigned'
   end
 end

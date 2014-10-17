@@ -5,7 +5,7 @@ class CreateEmploys < ActiveRecord::Migration
       t.string :last_name
       t.string :contact
       t.text :address
-
+      t.string :role , :default => 'developer'
       t.timestamps
     end
   end

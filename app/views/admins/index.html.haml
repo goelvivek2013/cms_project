@@ -1,0 +1,28 @@
+%h1 Listing User
+%table.table
+  %tr
+    %th First Name
+    %th Last Name
+    %th Contact
+    %th Address
+    %th Role
+    %th Status
+    %th
+    %th 
+    %th
+  
+  - @employs.each do |employ|
+    %tr
+      %td= employ.first_name
+      %td= employ.last_name
+      %td= employ.contact
+      %td= employ.address
+      %td= employ.role
+      %td= link_to employ.status , assign_employ_admins_path(:employ => employ) 
+      %td= link_to 'edit'
+      %td= link_to 'show'
+      %td= link_to 'delete'
+
+%br
+= link_to 'New Employ'
+

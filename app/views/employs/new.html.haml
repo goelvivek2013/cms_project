@@ -10,29 +10,29 @@
 
   .field
     = f.label :first_name
-    = f.text_field :first_name
+    = f.text_field :first_name , :required => true
   .field
     = f.label :last_name
-    = f.text_field :last_name
+    = f.text_field :last_name , :required => true
   .field
     = f.label :role
-    = f.select :role, options_for_select(%w[admin employ apm teamlead] , selected: "employ", disabled: "admin")
+    = f.select :role, options_for_select(%w[admin developer apm teamlead] , selected: "employ", disabled: "admin")
   .field
     = f.label :contact
-    = f.text_field :contact
+    = f.text_field :contact , :required => true
   .field
     = f.label :address
-    = f.text_area :address
+    = f.text_area :address , :required => true
   = f.fields_for :user do |u|
     .field
       = u.label :email
-      = u.email_field :email
+      = u.email_field :email , :required => true
     .field
       = u.label :password
-      = u.password_field :password
+      = u.password_field :password , :required => true
     .field
       = u.label :password_confirmation
-      = u.password_field :password_confirmation
+      = u.password_field :password_confirmation , :required => true
 
   .actions
     = f.submit 'Save'

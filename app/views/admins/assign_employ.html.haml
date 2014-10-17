@@ -1,0 +1,22 @@
+%h2 Assign Role
+%p
+  %b First Name
+  = @employ.first_name
+
+%p
+  %b Last Name
+  = @employ.last_name
+
+%p
+  %b Role
+  = @employ.role
+
+%p
+  - if @employ.role == 'developer'
+    %b Assign TeamLead
+    = select_tag @employ.address , options_for_select(@employees.map {|teamlead| teamlead.employ.first_name})
+  - if @employ.role == 'teamlead'
+    %b Assign Apm
+    = select_tag @employ.address , options_for_select(@employees.map {|apm| apm.employ.first_name})
+
+  
