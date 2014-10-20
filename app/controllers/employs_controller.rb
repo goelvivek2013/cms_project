@@ -56,6 +56,6 @@ class EmploysController < ApplicationController
   private
 
     def employ_params
-      params.require(:employ).permit(:all)#:first_name, :last_name, :role, :contact,:status , :address ,:user_attributes => [:email , :password , :password_confirmation])
+      params.require(:employ).permit(:first_name, :last_name, :role, :contact,:status , :address ,:user_attributes => [:email , :password , :password_confirmation])
     end
 end
